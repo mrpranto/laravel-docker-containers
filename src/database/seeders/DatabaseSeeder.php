@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderProduct;
+use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,11 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Customer::factory()->count(5000)->create();
+
+        $this->command->info('Customers table seeded!');
+
+        Order::factory()->count(10000)->create();
+
+        $this->command->info('Orders table seeded!');
+
+        OrderProduct::factory()->count(30000)->create();
+
+        $this->command->info('OrderProducts table seeded!');
     }
 }
