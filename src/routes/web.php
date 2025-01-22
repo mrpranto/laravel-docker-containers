@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    \Illuminate\Support\Facades\Cache::set('hello', 'world!');
     return response()->json([
         'message' => 'App working fine !',
-        'now' => Carbon::now()->format('Y-m-d h:i:s A')
+        'now' => Carbon::now()->format('Y-m-d h:i:s A'),
+        'redis' => \Illuminate\Support\Facades\Cache::get('hello'),
     ]);
 });
+
+

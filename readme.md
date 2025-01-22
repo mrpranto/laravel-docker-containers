@@ -1,3 +1,6 @@
+- RUN `redis` command  bash :
+> `docker exec -it redis redis-cli -h redis -p 6379`
+
 - RUN `nodejs` command  bash :
 > `docker exec -it nodejs bash`
 

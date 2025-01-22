@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libzip-dev \
     libmcrypt-dev \
-    && docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath gd sockets
+    && docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath gd sockets \
+    && pecl install redis \
+    && docker-php-ext-enable redis
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
